@@ -14,7 +14,7 @@ export interface ITab {
 export const TABS: ITab[] = [
   {
     label: "Home",
-    route: "/Weather-App",
+    route: "/Weather-App/",
     icon: <HomeIcon fontSize="large" />,
     component: <HomePage />,
     index: true,
