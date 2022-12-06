@@ -14,14 +14,14 @@ export interface ITab {
 export const TABS: ITab[] = [
   {
     label: "Home",
-    route: "/",
+    route: "/Weather-App",
     icon: <HomeIcon fontSize="large" />,
     component: <HomePage />,
     index: true,
   },
   {
     label: "Favorites",
-    route: "/favorites",
+    route: "/Weather-App/favorites",
     icon: <FavoriteIcon fontSize="large" />,
     component: <FavoritesPage />,
     index: false,
