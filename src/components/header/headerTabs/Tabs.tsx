@@ -29,11 +29,6 @@ export const Tabs = () => {
             label={label}
             value={route}
             component={Link}
-            // onClick={(event: React.MouseEvent<HTMLAnchorElement>) => {
-            //   if (route === selectedTab) {
-            //     event.preventDefault();
-            //   }
-            // }}
           />
         ))}
       </MuiTabs>

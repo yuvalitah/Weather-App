@@ -22,7 +22,7 @@ Weather Application to view the weather of specific locations.
 * [React-Redux](https://github.com/reduxjs/react-redux) v8.0.5
 * [Redux-Persist](https://github.com/rt2zz/redux-persist) v6.0.0
 * [Axios](https://github.com/axios/axios) v1.2.0
-* [React-Router-Dom](https://github.com/remix-run/react-router) v5.2.0
+* [React-Router-Dom](https://github.com/remix-run/react-router) v6.4.3
 
 ## Installation
 

@@ -13,11 +13,12 @@ import {
   getWeatherAndForecastDataByGeolocation,
 } from "../../../utils";
 import { WeatherCard } from "../../weatherCard";
+import { useSearchParams } from "react-router-dom";
 import {
   IApiDailyWeatherForecastObj,
   IApiWeatherObj,
 } from "../../../api/interfaces";
-import { useSnackbar, useQuery } from "../../../hooks";
+import { useSnackbar } from "../../../hooks";
 import { AxiosError } from "axios";
 
 const StyledPaper = styled(Paper)(({ theme }) => ({
@@ -33,7 +34,7 @@ export const HomePage = () => {
     city: "",
     country: "",
   });
-  const queryParams = useQuery();
+  const [searchParams] = useSearchParams();
   const [weather, setWeather] = useState<IWeather>();
   const [weatherDailyForecast, setWeatherDailyForecast] = useState<
     IDailyForecast[]
@@ -159,10 +160,10 @@ export const HomePage = () => {
     const { country, city } = formFields;
     if (country || city) {
       getWeatherDataDebounceCallback(country, city);
-    } else if (queryParams.get("countryName") || queryParams.get("cityName")) {
+    } else if (searchParams.get("city") || searchParams.get("country")) {
       setFormFields({
-        country: queryParams.get("countryName") || "",
-        city: queryParams.get("cityName") || "",
+        city: searchParams.get("city") || "",
+        country: searchParams.get("country") || "",
       });
     } else {
       if (navigator.geolocation) {
@@ -173,7 +174,7 @@ export const HomePage = () => {
     }
   }, [
     formFields,
-    queryParams,
+    searchParams,
     getWeatherDataDebounceCallback,
     getWeatherDataByGeolocationCallback,
   ]);

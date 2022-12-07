@@ -7,8 +7,8 @@ export interface ITab {
   label: string;
   route: string;
   icon: JSX.Element;
-  component: React.FC;
-  exact: boolean;
+  component: React.ReactNode;
+  index: boolean;
 }
 
 export const TABS: ITab[] = [
@@ -16,14 +16,14 @@ export const TABS: ITab[] = [
     label: "Home",
     route: "/",
     icon: <HomeIcon fontSize="large" />,
-    component: HomePage,
-    exact: true,
+    component: <HomePage />,
+    index: true,
   },
   {
     label: "Favorites",
     route: "/favorites",
     icon: <FavoriteIcon fontSize="large" />,
-    component: FavoritesPage,
-    exact: false,
+    component: <FavoritesPage />,
+    index: false,
   },
 ];
