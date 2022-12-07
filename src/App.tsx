@@ -4,6 +4,7 @@ import { ThemeProvider } from "./context";
 import { Routes, Route } from "react-router-dom";
 import { TABS, ITab } from "./constants";
 import { SnackbarProvider } from "./context/Snackbar";
+import { NotFoundPage } from "./components/pages";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
                 index={index}
               />
             ))}
+            <Route path="*" element={<NotFoundPage />} />
           </Route>
         </Routes>
       </SnackbarProvider>
