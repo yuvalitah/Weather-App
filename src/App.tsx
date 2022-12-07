@@ -1,7 +1,7 @@
 import React from "react";
 import { Header } from "./components/header";
 import { ThemeProvider } from "./context";
-import { Routes, Route } from "react-router-dom";
+import { Switch, Route } from "react-router-dom";
 import { TABS, ITab } from "./constants";
 import { SnackbarProvider } from "./context/Snackbar";
 import { NotFoundPage } from "./components/pages";
@@ -11,12 +11,17 @@ function App() {
     <ThemeProvider>
       <SnackbarProvider>
         <Header />
-        <Routes>
-          {TABS.map(({ route, component, index }: ITab) => (
-            <Route key={route} path={route} element={component} index={index} />
+        <Switch>
+          {TABS.map(({ route, component, exact }: ITab) => (
+            <Route
+              key={route}
+              path={route}
+              component={component}
+              exact={exact}
+            />
           ))}
-          <Route path="*" element={<NotFoundPage />} />
-        </Routes>
+          <Route path="*" component={NotFoundPage} />
+        </Switch>
       </SnackbarProvider>
     </ThemeProvider>
   );

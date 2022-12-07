@@ -1,6 +1,6 @@
 import React from "react";
 import { Card, styled, Grid, CardActionArea } from "@mui/material";
-import { useNavigate, createSearchParams } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import { TABS } from "../../constants";
 import { FavoriteCityCardContent } from "./favoriteCityCardContent";
 import { IFavoriteCity } from "../../interfaces";
@@ -24,16 +24,13 @@ export const FavoriteCityCard = ({
     temperature: { celcius, farenheit },
   },
 }: IFavoriteCityCardProps) => {
-  const navigate = useNavigate();
+  const history = useHistory();
   const unit = useUnit();
 
   const navigateToCityCard = (city: string, country: string) => {
-    navigate({
+    history.push({
       pathname: TABS.find((tab) => tab.label === "Home")?.route,
-      search: createSearchParams({
-        city,
-        country,
-      }).toString(),
+      search: `?countryName=${country}&cityName=${city}`,
     });
   };
 

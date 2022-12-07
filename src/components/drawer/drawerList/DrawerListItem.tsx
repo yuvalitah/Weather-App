@@ -6,7 +6,7 @@ import {
   ListItemText,
 } from "@mui/material";
 import { ITab } from "../../../constants";
-import { useNavigate } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 
 interface IDrawerListItemProps {
   item: ITab;
@@ -15,13 +15,13 @@ interface IDrawerListItemProps {
 export const DrawerListItem = ({
   item: { label, route, icon },
 }: IDrawerListItemProps) => {
-  const navigate = useNavigate();
+  const history = useHistory();
 
   return (
     <ListItem key={label} disablePadding>
       <ListItemButton
         sx={{ textAlign: "center", pl: 2.5 }}
-        onClick={() => navigate(route)}
+        onClick={() => history.push(route)}
       >
         <ListItemIcon>{icon}</ListItemIcon>
         <ListItemText
