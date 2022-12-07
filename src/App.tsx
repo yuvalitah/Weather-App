@@ -10,18 +10,12 @@ function App() {
   return (
     <ThemeProvider>
       <SnackbarProvider>
+        <Header />
         <Routes>
-          <Route path="/" element={<Header />}>
-            {TABS.map(({ route, component, index }: ITab) => (
-              <Route
-                key={route}
-                path={route}
-                element={component}
-                index={index}
-              />
-            ))}
-            <Route path="*" element={<NotFoundPage />} />
-          </Route>
+          {TABS.map(({ route, component, index }: ITab) => (
+            <Route key={route} path={route} element={component} index={index} />
+          ))}
+          <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </SnackbarProvider>
     </ThemeProvider>

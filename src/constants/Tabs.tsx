@@ -21,7 +21,7 @@ export const TABS: ITab[] = [
   },
   {
     label: "Favorites",
-    route: "/favorites/",
+    route: "/favorites",
     icon: <FavoriteIcon fontSize="large" />,
     component: <FavoritesPage />,
     index: false,
